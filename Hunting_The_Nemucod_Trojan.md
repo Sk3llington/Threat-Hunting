@@ -33,12 +33,20 @@ If we take into consideration the payloads downloaded by Nemucod in recent attac
 #### 3. Describe observations and indicators that may be related to the perpetrators of the intrusion. Categorize your insights according to the appropriate stage of the cyber kill chain, as structured in the following table.
 
 
+
 |         TTP        |                 Example                   |
 | ------------------ | ----------------------------------------- |
 | **Reconnaissance** |  How did the attacker locate the victim?  | 
+ 
  
 
 Based on the attacker(s) TTPs, it seems that the JavaScript Trojan Nemucod is distributed via email spam messages informing people about owed fines, failed payments, and held baggages. 
 This particular way of targeting people requires whoever receives the message to give it immediate attention. The attacker uses “urgency” to have the victim open the attachment containing the malicious file. Major campaigns took place targeting Italy, U.S., Europe, Canada, India and Russia, where the trojan was hidden as an attachment in the email, masquerading as a `.zip` file. 
 
 
+
+| **Weaponization**  |  What was it that was downloaded? |
+ 
+Findings: A fake file masquerading as an invoice or, in later campaigns, as documents such as contracts or informational documents in a .zip format. 
+ 
+Inside the .zip file, a JavaScript malware was hidden (Nemucod) and once ran will either download an .EXE file that will then run to retrieve a Trojan Downloader called Fareit or Pony Downloader which in turn will download another set of .exe files containing password/info-stealer malware such as Gozi and Zeus (originally),and more recently, ransomware such as TeslaCrypt and Locky.
