@@ -1,7 +1,7 @@
 ### Setting up Firewalld
 
 
-For this demonstration I will play a Jr. Security Administrator tasked with configurating Zones that will segment each network according to the type of service these networks are used for within the company's network.
+For this demonstration I will play a Jr. Security Administrator tasked with configuring Zones that will segment each network according to the type of service these networks are used for within the company's network.
 
 ##### Below, the list of the Zones that I will create:
 
@@ -34,6 +34,14 @@ For this demonstration I will play a Jr. Security Administrator tasked with conf
 * Source IP: 201.45.105.12
 * Services: SMTP, POP3
 * Interface: ETH3
+
+I was also tasked to add the following IP addresses to the firewall's black list:
+
+* 10.208.56.23
+* 135.95.103.76
+* 76.34.169.118
+...
+...
 
 
 
