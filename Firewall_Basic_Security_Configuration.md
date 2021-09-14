@@ -8,8 +8,8 @@ For this demonstration I will play a Jr. Security Administrator tasked with conf
 
 **Public Zone**
 
-..*Services: HTTP, HTTPS, POP3, SMTP
-..*Interface: ETH0
+* Services: HTTP, HTTPS, POP3, SMTP
+* Interface: ETH0
 
 
 
