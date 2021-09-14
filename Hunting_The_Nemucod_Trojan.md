@@ -139,3 +139,37 @@ The Trojan downloaders contact their C&C servers (listed above) and download add
 Once the Trojan downloaders call back home (the C&Cs), they download malware to the victim’s machine (Gozi, Zeus, Locky etc.). The malware then establishes a connection with the C&C servers to received commands from the attacker(s) as well as to send back the stolen data from the victim’s system.
 
 
+|         TTP        |                                   Example                                      |
+| ------------------ | -------------------------------------------------------------------------------| 
+| **Actions on Objectives** | What does the software that the attacker sent do to complete it's tasks?|
+ 
+ 
+#### Findings: 
+ 
+If we focus on Gozi and Zeus malware, these are capable of man-in-the-browser attacks, stealing credentials on pre-configured websites, they also come with information stealing features such as key-logging, e-mail, ftp accounts, screen video capture and more.
+
+
+#### 4. Recommended mitigation strategies.
+
+- Update all signatures in Snort, the following signatures have been posted by Certego (back in 2015 when the dropper first appeared) to help protect networks and systems against the Nemucod dropper:
+ 
+``` 
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:"CERTEGO MALWARE JS/Nemucod.M.gen requesting EXE payload"; flow:to_server,established; content:"GET"; http_method; content:".php?"; http_uri; nocase; content:"key="; http_uri; nocase; content:!"pdf="; http_uri; nocase; content:!"Referer|3a| "; nocase; http_header; pcre:"/\/get(_new)?\.php\?[a-zA-Z]{4,}=0\.[0-9]{10,}&key=[a-zA-Z0-9]{4,}$/U"; flowbits:set,CERTEGO.nemucod.exerequest; classtype:trojan-activity; sid:9000101; rev:2;)
+```
+
+```
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:"CERTEGO MALWARE JS/Nemucod.M.gen requesting PDF payload"; flow:to_server,established; content:"GET"; http_method; content:".php?"; http_uri; nocase; content:"key="; http_uri; nocase; content:"pdf="; http_uri; nocase; content:!"Referer|3a| "; nocase; http_header; pcre:"/\/get(_new)?\.php\?[a-zA-Z]{4,}=0\.[0-9]{10,}&key=[a-zA-Z0-9]{4,}&pdf=[a-zA-Z]{4,}$/U"; flowbits:set,CERTEGO.nemucod.pdfrequest; classtype:trojan-activity; sid:9000102; rev:2;)
+```
+```
+alert tcp $EXTERNAL_NET $HTTP_PORTS -> $HOME_NET any (msg:"CERTEGO MALWARE JS/Nemucod.M.gen downloading EXE payload"; flow:from_server,established; flowbits:isset,CERTEGO.nemucod.exerequest; file_data; content:"MZ"; within:2; byte_jump:4,58,relative,little; content:"PE|00 00|"; fast_pattern; distance:-64; within:4; classtype:trojan-activity; sid:9000103; rev:1;)
+```
+```
+alert tcp $EXTERNAL_NET $HTTP_PORTS -> $HOME_NET any (msg:"CERTEGO MALWARE JS/Nemucod.M.gen downloading PDF payload"; flow:from_server,established; flowbits:isset,CERTEGO.nemucod.pdfrequest; file_data; content:"%PDF-"; within:5; classtype:trojan-activity; sid:9000104; rev:1;)
+```
+
+- Add all known domains and C&C servers (listed previously) to your firewall blacklist.
+ 
+- Have an Antivirus up-to-date in case the malware passes through all defenses and infect hosts on the network. Run a full scan and make sure that all traces of malware have been removed if an endpoint is infected. Re-image the endpoint if you can start fresh from a known clean backup.
+ 
+- Monitor network activity for any suspicious activity or call back to a C&C server.
+
