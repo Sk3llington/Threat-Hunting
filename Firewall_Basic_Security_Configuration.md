@@ -15,25 +15,25 @@ For this demonstration I will play a Jr. Security Administrator tasked with conf
 
 **Web Zone**
 
-Source IP: 201.45.34.126
-Services: HTTP
-Interface: ETH1
+* Source IP: 201.45.34.126
+* Services: HTTP
+* Interface: ETH1
 
 
 
 **Sales Zone**
 
-Source IP: 201.45.15.48
-Services: HTTPS
-Interface: ETH2
+* Source IP: 201.45.15.48
+* Services: HTTPS
+* Interface: ETH2
 
 
 
 **Mail Zone**
 
-Source IP: 201.45.105.12
-Services: SMTP, POP3
-Interface: ETH3
+* Source IP: 201.45.105.12
+* Services: SMTP, POP3
+* Interface: ETH3
 
 
 
