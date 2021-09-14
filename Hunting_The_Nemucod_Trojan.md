@@ -70,6 +70,7 @@ Then, once the victim unzips the file and runs the JavaScript malware masqueradi
  
 ##### Example of domains used in different campaigns targeting Italian users involving Nemucod:
 
+```
 dcmyx[.]com
 ibmdatacap[.]com
 www.landtourjapan[.]com
@@ -95,16 +96,17 @@ wellnessherbal[.]com
 belarusstudy[.]com 
 adenyaoteleet[.]com 
 tripsnepal[.]com
-
+```
 #### C&C servers for the Trojan Downloaders:
 
+```
 famoussuperstars[.]ru
 torpedazil[.]ru
 gofermertoop[.]ru
 109.120.142[.]168
 109.120.155[.]30
 83.69.230[.]16
-
+```
 
 |         TTP        |                 Example                   |
 | ------------------ | ----------------------------------------- |
