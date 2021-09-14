@@ -8,7 +8,7 @@
 In this section, I analyzed Snort rule logs including malicious scans of a network, phishing attack logs and download of malicious payloads.
 
 Access the analysis here:
-![Snort Rule Analysis]
+![Snort Rule Analysis](https://github.com/Sk3llington/Threat-Hunting/blob/main/Snort_Rules_Analysis.md)
 
 
 ### Firewall Basic Security Configuration
