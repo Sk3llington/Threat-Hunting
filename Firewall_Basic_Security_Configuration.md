@@ -296,9 +296,4 @@ $ sudo firewall-cmd --zone=drop --list-all
 ```
 
 
-
-
-
-
-
-
+I have successfully configured and deployed a fully comprehensive `firewalld` installation!
