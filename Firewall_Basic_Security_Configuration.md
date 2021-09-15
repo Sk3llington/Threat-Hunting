@@ -112,3 +112,62 @@ $ sudo firewall-cmd --list-all-zones
 You can see that the `Public` and `Drop` Zones are created by default. 
 
 To demonstrate how to create "Zones", I will create Zones for `Web`, `Sales`, and `Mail`.
+
+
+#### Create Zones for `Web`, `Sales` and `Mail`.
+
+ 
+##### Commands that create Web, Sales and Mail zones:
+ 
+```bash
+$ sudo firewall-cmd --permanent --new-zone=Web
+```
+```bash
+$ sudo firewall-cmd --permanent --new-zone=Sales
+```
+```bash
+$ sudo firewall-cmd --permanent --new-zone=Mail
+```
+ 
+##### Command to reload to apply changes:
+
+```bash
+Sudo firewall-cmd --reload
+``` 
+
+#### Set the zones to their designated interfaces.
+ 
+##### Commands that set your `eth` interfaces to your zones:
+ 
+```bash
+$ sudo firewall-cmd --permanent --zone=Public --add-interface=eth0
+```
+```bash 
+$ sudo firewall-cmd --permanent --zone=Web --add-interface=eth1
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=Sales --add-interface=eth2
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=Mail --add-interface=eth3
+```
+ 
+##### Again we need to reload the firewall to apply the changes:
+
+```bash 
+$ sudo firewall-cmd --reload
+```
+
+#### Add services to the active zones:
+ 
+##### Commands that add services to the **public** zone, the **web** zone, the **sales** zone, and the **mail** zone:
+ 
+- #####Public:
+ 
+    ```bash
+    $ sudo firewall-cmd --permanent --zone=public --add-service=http
+    $ sudo firewall-cmd --permanent --zone=public --add-service=https
+    $ sudo firewall-cmd --permanent --zone=public --add-service=pop3
+    $ sudo firewall-cmd --permanent --zone=public --add-service=smtp
+    ```
+
