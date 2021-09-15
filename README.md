@@ -7,15 +7,15 @@
 
 In this section, I analyzed `Snort` rule logs including malicious scans of a network, phishing attack logs and download of malicious payloads.
 
-Access the analysis here:
+You can access the analysis here:
 ![Snort Rule Analysis](https://github.com/Sk3llington/Threat-Hunting/blob/main/Snort_Rules_Analysis.md)
 
 
 ### Firewall Basic Security Configuration
 
-In this I go over a basic configuration of a free open-source firewall, `firewalld`.
+In this section I go over a basic configuration of a free open-source firewall, `firewalld`.
 
-Access the configuration here:
+You can access the configuration demonstration here:
 ![Firewalld Configuration](https://github.com/Sk3llington/Threat-Hunting/blob/main/Firewall_Basic_Security_Configuration.md)
 
 ### Hunting the Nemucod Trojan
