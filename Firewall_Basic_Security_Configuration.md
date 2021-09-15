@@ -41,7 +41,8 @@ I was also tasked to add the following IP addresses to the firewall's black list
 * 135.95.103.76
 * 76.34.169.118
 
-...First, let's begin by running the commands that enable and start `firewalld` upon boots and reboots.
+
+First, let's begin by running the commands that enable and start `firewalld` upon boots and reboots.
 
 ```bash
 $ sudo /etc/init.d/firewalld start
