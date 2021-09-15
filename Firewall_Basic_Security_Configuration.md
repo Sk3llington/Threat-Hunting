@@ -162,7 +162,7 @@ $ sudo firewall-cmd --reload
  
 ##### Commands that add services to the **public** zone, the **web** zone, the **sales** zone, and the **mail** zone:
  
-- #####Public:
+- **Public:**
  
     ```bash
     $ sudo firewall-cmd --permanent --zone=public --add-service=http
