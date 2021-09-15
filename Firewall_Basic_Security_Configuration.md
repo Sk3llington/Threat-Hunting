@@ -164,10 +164,141 @@ $ sudo firewall-cmd --reload
  
 - **Public:**
  
-    ```bash
-    $ sudo firewall-cmd --permanent --zone=public --add-service=http
-    $ sudo firewall-cmd --permanent --zone=public --add-service=https
-    $ sudo firewall-cmd --permanent --zone=public --add-service=pop3
-    $ sudo firewall-cmd --permanent --zone=public --add-service=smtp
-    ```
+```bash
+$ sudo firewall-cmd --permanent --zone=public --add-service=http
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=public --add-service=https
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=public --add-service=pop3
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=public --add-service=smtp
+```
+
+- **Web:**
+ 
+```bash
+$ sudo firewall-cmd --permanent --zone=Web --add-service=http
+```
+
+- **Sales:**
+ 
+```bash
+$ sudo firewall-cmd --permanent --zone=Sales --add-service=https
+```
+
+- **Mail:**
+ 
+```bash
+$ sudo firewall-cmd --permanent --zone=Mail --add-service=smtp
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=Mail --add-service=pop3
+```
+
+#### Add malicious actors to the Drop Zone.
+ 
+##### Command that will add all current and any future blacklisted IPs to the Drop Zone.
+ 
+```bash
+$ sudo firewall-cmd --permanent --zone=drop --add-rich-rule="rule family='ipv4' source address='10.208.56.23' reject"
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=drop --add-rich-rule="rule family='ipv4' source address='135.95.103.76' reject"
+```
+```bash
+$ sudo firewall-cmd --permanent --zone=drop --add-rich-rule="rule family='ipv4' source address='76.34.169.118' reject"
+```
+ 
+##### Command to reload and apply the changes to the zone:
+
+```bash
+$ sudo firewall-cmd --reload
+```
+
+#### Make rules permanent then reload them.
+ 
+It's good practice to ensure that your `firewalld` installation remains nailed up and retains its services across reboots. This ensures that the network remains secured after unplanned outages such as power failures.
+ 
+##### Command that reloads the `firewalld` configurations and writes it to memory:
+ 
+```bash
+$ sudo firewall-cmd --reload
+```
+
+#### View active Zones
+ 
+Now, I want to provide truncated listings of all currently **active** zones. This is a good time to verify my zone settings.
+ 
+##### Command to display all current “active” zones:
+
+```bash
+$ sudo firewall-cmd --get-active-zones
+```
+
+##### Command that displays all zone services.
+ 
+```bash
+$ sudo firewall-cmd --list-services
+```
+
+
+#### How to Block an IP address.
+ 
+I used a rich-rule that blocks the IP address `138.138.0.3`.
+ 
+```bash
+$ sudo firewall-cmd --permanent --zone=public --add-rich-rule="rule family='ipv4' source address='138.138.0.3' reject"
+```
+
+
+##### Command to reload the firewall: 
+
+```bash
+$ sudo firewall-cmd --reload
+```
+
+
+#### Block Ping/ICMP Requests.
+ 
+Now it's time to harden my network against `ping` scans by blocking `icmp echo` replies.
+ 
+##### Command that blocks `pings` and `icmp` requests in your `public` zone:
+ 
+```bash
+$ sudo firewall-cmd --zone=public --add-icmp-block=echo-reply --add-icmp-block=echo-request
+```
+
+
+#### Rule Check
+ 
+Now that I've set up my brand new `firewalld` installation, it's time to verify that all of the settings have taken effect.
+ 
+##### Commands that lists all of the rule settings. Do one command at a time for each zone:
+
+
+```bash
+$ sudo firewall-cmd --zone=public --list-all
+```
+```bash
+$ sudo firewall-cmd --zone=Web --list-all
+```
+```bash
+$ sudo firewall-cmd --zone=mail --list-all
+```
+```bash
+$ sudo firewall-cmd --zone=sales --list-all
+```
+```bash
+$ sudo firewall-cmd --zone=drop --list-all
+```
+
+
+
+
+
+
+
 
