@@ -16,7 +16,7 @@ Access the analysis here:
 In this I go over a basic configuration of a free open-source firewall, `firewalld`.
 
 Access the configuration here:
-![ufw_firewalld](https://github.com/Sk3llington/Threat-Hunting/blob/main/Firewall_Basic_Security_Configuration.md)
+![Firewalld Configuration](https://github.com/Sk3llington/Threat-Hunting/blob/main/Firewall_Basic_Security_Configuration.md)
 
 ### Hunting the Nemucod Trojan
 
