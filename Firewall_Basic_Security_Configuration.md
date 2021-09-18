@@ -3,7 +3,7 @@
 
 For this demonstration I will play a Jr. Security Administrator tasked with configuring Zones that will segment each network according to the type of service these networks are used for within the company's network.
 
-##### Below, the list of the Zones that I will create:
+#### Below, the list of Zones that I will create:
 
 
 **Public Zone**
