@@ -18,7 +18,7 @@ This alerts users of any inbound TCP traffic coming from any source ip address a
 
 #### 2. What stage of the Cyber Kill Chain does this alert violate?
 
-This alert violates the Stage 1, Reconnaissance. The ET threat highlighted a potential scan of ports ranging from 5800 to 5820.
+This alert violates the **Stage 1, Reconnaissance**. The ET threat highlighted a potential scan of ports ranging from 5800 to 5820.
 
 
 #### 3. What kind of attack is this rule monitoring?
