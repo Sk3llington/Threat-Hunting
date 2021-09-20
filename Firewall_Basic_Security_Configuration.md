@@ -81,9 +81,9 @@ Next, I listed all currently configured firewall rules. This will give you a goo
  
 Command that lists all currently configured firewall rules:
  
-    ```bash
-    $ sudo firewall-cmd --list-all
-    ```
+```bash
+$ sudo firewall-cmd --list-all
+```
  
 ##### Tips: 
 
