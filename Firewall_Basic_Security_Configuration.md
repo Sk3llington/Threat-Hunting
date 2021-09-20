@@ -47,9 +47,11 @@ First, let's begin by running the commands that enable and start `firewalld` upo
 ```bash
 $ sudo /etc/init.d/firewalld start
 ```
+
 ```bash
 $ sudo systemctl start firewalld
 ```
+
 ```bash
 $ sudo systemctl enable firewalld
 ```
